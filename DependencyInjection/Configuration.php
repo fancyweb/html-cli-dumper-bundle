@@ -19,7 +19,7 @@ class Configuration implements ConfigurationInterface
             ->canBeDisabled()
                 ->children()
                     ->scalarNode('save_directory_path')->defaultValue('%kernel.root_dir%/../web/_html_cli_dumper_data')->cannotBeEmpty()->end()
-                    ->scalarNode('view_base_url')->defaultValue('%router.request_context.scheme%://%router.request_context.host%/_html_cli_dumper_data')->cannotBeEmpty()->end()
+                    ->scalarNode('view_base_url')->defaultValue('%router.request_context.scheme%://%router.request_context.host%%router.request_context.base_url%/_html_cli_dumper_data')->cannotBeEmpty()->end()
                     ->booleanNode('disable_cli_dump')->defaultFalse()->end()
                 ->end()
             ->end();

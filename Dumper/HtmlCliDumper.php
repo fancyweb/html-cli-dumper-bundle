@@ -75,9 +75,10 @@ class HtmlCliDumper extends CliDumper
         $this->fs->dumpFile($this->saveDirectoryPath . $dumpFilename, stream_get_contents($output, -1, 0));
         fclose($output);
 
-        $this->setColors(false);
+        $this->colors = false;
         $this->line = sprintf("\n=== HTML dump url ===\n>>> %s\n", $this->viewBaseUrl . $dumpFilename);
         parent::dumpLine(0);
+        $this->colors = null;
 
         return $result;
     }
